@@ -64,6 +64,8 @@ extension ChooseViewController: UITableViewDataSource {
             return
         }
         
+        loadingIndicator.startAnimating()
+        
         RoverNetworkManager.instance.fetchImages(from: camera, at: date) { [weak self] result in
             switch result {
             case .failure:
@@ -71,6 +73,7 @@ extension ChooseViewController: UITableViewDataSource {
             case .success(let photos):
                 self?.pushPhotosController(with: photos)
             }
+            self?.loadingIndicator.stopAnimating()
         }
     }
     

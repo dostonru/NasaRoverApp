@@ -51,6 +51,7 @@ class PhotosViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.tintColor = .darkGray
+        navigationController?.navigationBar.topItem?.title = " "
     }
     
     func setTitle(title: String, subtitle: String) {

@@ -31,6 +31,8 @@ class ChooseViewController: UIViewController {
         return tableView
     }()
     
+    let loadingIndicator = UIActivityIndicatorView(style: .large)
+    
     var camera: Rover.CameraType?
     var date: String?
     var subsriptions = Set<AnyCancellable>()
@@ -41,6 +43,7 @@ class ChooseViewController: UIViewController {
         
         placeImageView()
         placeTableView()
+        placeLoadingIndicator()
     }
     
     
@@ -66,6 +69,16 @@ class ChooseViewController: UIViewController {
             chooseTableView.leftAnchor.constraint(equalTo: view.leftAnchor),
             chooseTableView.rightAnchor.constraint(equalTo: view.rightAnchor),
             chooseTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+    }
+    
+    private func placeLoadingIndicator() {
+        loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(loadingIndicator)
+        
+        NSLayoutConstraint.activate([
+            loadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            loadingIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
 }

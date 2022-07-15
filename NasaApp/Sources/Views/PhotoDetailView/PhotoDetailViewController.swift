@@ -33,10 +33,12 @@ class PhotoDetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.topItem?.title = " "
     }
     
     private func setupNavigationBar() {
         guard let photo = photo else { return }
+        
         navigationItem.titleView = setTitle(title: "Photo ID",titleColor: .white, subtitle: "\(photo.id)",subtitleColor: .white)
         
         let menuBtn = UIButton(type: .system)
@@ -51,7 +53,6 @@ class PhotoDetailViewController: UIViewController {
             menuBarItem.customView!.heightAnchor.constraint(equalToConstant: 24),
             menuBarItem.customView!.widthAnchor.constraint(equalToConstant: 24)
         ])
-
         navigationItem.rightBarButtonItem = menuBarItem
     }
     
