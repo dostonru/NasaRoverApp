@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1C80AF98091F611A3B4B227D /* Pods_NasaApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D9C9E7F4E56E1ECB2864565 /* Pods_NasaApp.framework */; };
+		F91B59392882EEEC006BF90C /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91B59382882EEEC006BF90C /* MainCoordinator.swift */; };
+		F91B593B2882EEFB006BF90C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91B593A2882EEFB006BF90C /* Coordinator.swift */; };
+		F91B593F2882F866006BF90C /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91B593E2882F866006BF90C /* Response.swift */; };
+		F91B5942288301D5006BF90C /* PhotosCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91B5941288301D5006BF90C /* PhotosCoordinator.swift */; };
 		F928C1AD287D975400C912B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F928C1AC287D975400C912B2 /* AppDelegate.swift */; };
 		F928C1AF287D975400C912B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F928C1AE287D975400C912B2 /* SceneDelegate.swift */; };
 		F928C1B1287D975400C912B2 /* ChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F928C1B0287D975400C912B2 /* ChooseViewController.swift */; };
@@ -17,6 +21,7 @@
 		F93251B9287E9871005F1039 /* DateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93251B8287E9871005F1039 /* DateTableViewCell.swift */; };
 		F93251BB287E988B005F1039 /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93251BA287E988B005F1039 /* ButtonTableViewCell.swift */; };
 		F957140428805E0300E92760 /* BaseChooseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F957140328805E0300E92760 /* BaseChooseTableViewCell.swift */; };
+		F99A23CB2882BECF00A01673 /* RoverNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99A23CA2882BECF00A01673 /* RoverNetworkManager.swift */; };
 		F9AA9EC32880E1180005BC2A /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AA9EC22880E1180005BC2A /* PhotosViewController.swift */; };
 		F9AA9EC62880F1D60005BC2A /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AA9EC52880F1D60005BC2A /* ImageCollectionViewCell.swift */; };
 		F9AA9EC9288139FE0005BC2A /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AA9EC8288139FE0005BC2A /* UIViewController+Extension.swift */; };
@@ -27,14 +32,18 @@
 		F9AA9ED6288157440005BC2A /* CameraTableViewCell+UIPickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AA9ED5288157440005BC2A /* CameraTableViewCell+UIPickerViewDelegate.swift */; };
 		F9AA9EDA288158410005BC2A /* PhotosViewController+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AA9ED9288158410005BC2A /* PhotosViewController+UICollectionViewDataSource.swift */; };
 		F9AA9EDC288158630005BC2A /* PhotosViewController+UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AA9EDB288158630005BC2A /* PhotosViewController+UICollectionViewDelegate.swift */; };
-		F9EA1FA02880AF1A00A72A55 /* RoverCameras.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EA1F9F2880AF1A00A72A55 /* RoverCameras.swift */; };
-		F9EA1FA32880BCDE00A72A55 /* RoverNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EA1FA22880BCDE00A72A55 /* RoverNetworkManager.swift */; };
+		F9EA1FA02880AF1A00A72A55 /* Rover.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EA1F9F2880AF1A00A72A55 /* Rover.swift */; };
+		F9EA1FA32880BCDE00A72A55 /* CuriosityNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EA1FA22880BCDE00A72A55 /* CuriosityNetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0D9C9E7F4E56E1ECB2864565 /* Pods_NasaApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NasaApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FE4C842EDC8BE6B7CEDD76B /* Pods-NasaApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NasaApp.release.xcconfig"; path = "Target Support Files/Pods-NasaApp/Pods-NasaApp.release.xcconfig"; sourceTree = "<group>"; };
 		477317809AABAAAB9F7907A4 /* Pods-NasaApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NasaApp.debug.xcconfig"; path = "Target Support Files/Pods-NasaApp/Pods-NasaApp.debug.xcconfig"; sourceTree = "<group>"; };
+		F91B59382882EEEC006BF90C /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		F91B593A2882EEFB006BF90C /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		F91B593E2882F866006BF90C /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		F91B5941288301D5006BF90C /* PhotosCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCoordinator.swift; sourceTree = "<group>"; };
 		F928C1A9287D975400C912B2 /* NasaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NasaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F928C1AC287D975400C912B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F928C1AE287D975400C912B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +55,7 @@
 		F93251B8287E9871005F1039 /* DateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTableViewCell.swift; sourceTree = "<group>"; };
 		F93251BA287E988B005F1039 /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
 		F957140328805E0300E92760 /* BaseChooseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseChooseTableViewCell.swift; sourceTree = "<group>"; };
+		F99A23CA2882BECF00A01673 /* RoverNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverNetworkManager.swift; sourceTree = "<group>"; };
 		F9AA9EC22880E1180005BC2A /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		F9AA9EC52880F1D60005BC2A /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		F9AA9EC8288139FE0005BC2A /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -56,8 +66,8 @@
 		F9AA9ED5288157440005BC2A /* CameraTableViewCell+UIPickerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraTableViewCell+UIPickerViewDelegate.swift"; sourceTree = "<group>"; };
 		F9AA9ED9288158410005BC2A /* PhotosViewController+UICollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotosViewController+UICollectionViewDataSource.swift"; sourceTree = "<group>"; };
 		F9AA9EDB288158630005BC2A /* PhotosViewController+UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotosViewController+UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
-		F9EA1F9F2880AF1A00A72A55 /* RoverCameras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverCameras.swift; sourceTree = "<group>"; };
-		F9EA1FA22880BCDE00A72A55 /* RoverNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverNetworkManager.swift; sourceTree = "<group>"; };
+		F9EA1F9F2880AF1A00A72A55 /* Rover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rover.swift; sourceTree = "<group>"; };
+		F9EA1FA22880BCDE00A72A55 /* CuriosityNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuriosityNetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +97,15 @@
 				0D9C9E7F4E56E1ECB2864565 /* Pods_NasaApp.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F91B59372882EEC9006BF90C /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				F91B59382882EEEC006BF90C /* MainCoordinator.swift */,
+				F91B5941288301D5006BF90C /* PhotosCoordinator.swift */,
+			);
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 		F928C1A0287D975400C912B2 = {
@@ -129,9 +148,9 @@
 			isa = PBXGroup;
 			children = (
 				F988B32F2880AA2C00571EF9 /* Splash */,
-				F9AA9ECA2881468A0005BC2A /* PhotoDetailView */,
-				F9AA9EC02880E0DE0005BC2A /* PhotosView */,
 				F928C1C2287D9EEF00C912B2 /* ChooseView */,
+				F9AA9EC02880E0DE0005BC2A /* PhotosView */,
+				F9AA9ECA2881468A0005BC2A /* PhotoDetailView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -161,6 +180,8 @@
 		F988B32E2880AA0A00571EF9 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				F91B59372882EEC9006BF90C /* Coordinators */,
+				F99A23C92882BEB300A01673 /* Protocols */,
 				F9AA9EC7288139E30005BC2A /* Extensions */,
 				F9EA1FA12880BCCA00A72A55 /* Network */,
 				F9EA1F9E2880AEEC00A72A55 /* Models */,
@@ -185,6 +206,15 @@
 				F957140328805E0300E92760 /* BaseChooseTableViewCell.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		F99A23C92882BEB300A01673 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F99A23CA2882BECF00A01673 /* RoverNetworkManager.swift */,
+				F91B593A2882EEFB006BF90C /* Coordinator.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		F9AA9EC02880E0DE0005BC2A /* PhotosView */ = {
@@ -251,7 +281,8 @@
 		F9EA1F9E2880AEEC00A72A55 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F9EA1F9F2880AF1A00A72A55 /* RoverCameras.swift */,
+				F91B593E2882F866006BF90C /* Response.swift */,
+				F9EA1F9F2880AF1A00A72A55 /* Rover.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -259,7 +290,7 @@
 		F9EA1FA12880BCCA00A72A55 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				F9EA1FA22880BCDE00A72A55 /* RoverNetworkManager.swift */,
+				F9EA1FA22880BCDE00A72A55 /* CuriosityNetworkManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -379,23 +410,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				F957140428805E0300E92760 /* BaseChooseTableViewCell.swift in Sources */,
+				F99A23CB2882BECF00A01673 /* RoverNetworkManager.swift in Sources */,
 				F9AA9EC62880F1D60005BC2A /* ImageCollectionViewCell.swift in Sources */,
 				F9AA9ECF288156C50005BC2A /* ChooseViewController+UITableViewDataSource.swift in Sources */,
 				F928C1B1287D975400C912B2 /* ChooseViewController.swift in Sources */,
+				F91B59392882EEEC006BF90C /* MainCoordinator.swift in Sources */,
 				F9AA9ED6288157440005BC2A /* CameraTableViewCell+UIPickerViewDelegate.swift in Sources */,
 				F9AA9ED42881572D0005BC2A /* CameraTableViewCell+UIPickerViewDataSource.swift in Sources */,
 				F928C1AD287D975400C912B2 /* AppDelegate.swift in Sources */,
 				F928C1AF287D975400C912B2 /* SceneDelegate.swift in Sources */,
 				F9AA9ECC288146AA0005BC2A /* PhotoDetailViewController.swift in Sources */,
-				F9EA1FA32880BCDE00A72A55 /* RoverNetworkManager.swift in Sources */,
+				F91B5942288301D5006BF90C /* PhotosCoordinator.swift in Sources */,
+				F9EA1FA32880BCDE00A72A55 /* CuriosityNetworkManager.swift in Sources */,
 				F9AA9EDA288158410005BC2A /* PhotosViewController+UICollectionViewDataSource.swift in Sources */,
 				F9AA9EDC288158630005BC2A /* PhotosViewController+UICollectionViewDelegate.swift in Sources */,
 				F93251B7287E9863005F1039 /* CameraTableViewCell.swift in Sources */,
+				F91B593F2882F866006BF90C /* Response.swift in Sources */,
 				F9AA9EC9288139FE0005BC2A /* UIViewController+Extension.swift in Sources */,
+				F91B593B2882EEFB006BF90C /* Coordinator.swift in Sources */,
 				F93251B9287E9871005F1039 /* DateTableViewCell.swift in Sources */,
 				F9AA9ED1288156E80005BC2A /* ChooseViewController+UITableViewDelegate.swift in Sources */,
 				F93251BB287E988B005F1039 /* ButtonTableViewCell.swift in Sources */,
-				F9EA1FA02880AF1A00A72A55 /* RoverCameras.swift in Sources */,
+				F9EA1FA02880AF1A00A72A55 /* Rover.swift in Sources */,
 				F9AA9EC32880E1180005BC2A /* PhotosViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

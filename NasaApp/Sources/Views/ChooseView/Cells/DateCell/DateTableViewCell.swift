@@ -10,9 +10,9 @@ import Combine
 
 class DateTableViewCell: BaseChooseTableViewCell {
     
-    static var identifier = "DATE_CELL_ID"
+    static let identifier = "DATE_CELL_ID"
     
-    var currentDate = PassthroughSubject<String, Never>()
+    var selectDate = PassthroughSubject<String, Never>()
     
     private let dayPicker: UITextField = {
         let textField = UITextField()
@@ -35,8 +35,8 @@ class DateTableViewCell: BaseChooseTableViewCell {
         return imageView
     }()
     
-    override func setupCell() {
-        super.setupCell()
+    override func configureCell() {
+        super.configureCell()
         
         placeIcon()
         placeDatePicker()
@@ -70,17 +70,18 @@ class DateTableViewCell: BaseChooseTableViewCell {
     
     @objc func dateChoosed() {
         // First we need to show in View
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "d MMM, yyyy"
+        let dislayDateFormatter = DateFormatter()
+        dislayDateFormatter.dateFormat = "d MMM, yyyy"
         
         // Second we need to format to send to the back-end
-        let dateFormatter2 = DateFormatter()
-        dateFormatter2.dateFormat = "yyyy-MM-dd"
+        let serverDateFormatter = DateFormatter()
+        serverDateFormatter.dateFormat = "yyyy-MM-dd"
         
-        let dateForServer = dateFormatter2.string(from: pickerView.date)
-        currentDate.send(dateForServer)
+        let dateForServer = serverDateFormatter.string(from: pickerView.date)
         
-        dayPicker.text = dateFormatter.string(from: pickerView.date)
+        selectDate.send(dateForServer)
+        
+        dayPicker.text = dislayDateFormatter.string(from: pickerView.date)
         dayPicker.resignFirstResponder()
     }
 

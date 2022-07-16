@@ -29,7 +29,7 @@ class BaseChooseTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func setupCell() {
+    func configureCell() {
         self.backgroundColor = .clear
         
         contentView.addSubview(cellView)

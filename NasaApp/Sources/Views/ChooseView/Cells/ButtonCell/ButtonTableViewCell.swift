@@ -9,7 +9,7 @@ import UIKit
 
 class ButtonTableViewCell: BaseChooseTableViewCell {
     
-    static var identifier = "BUTTON_CELL_ID"
+    static let identifier = "BUTTON_CELL_ID"
     
     var photos = [Rover.Photo]()
     
@@ -18,11 +18,12 @@ class ButtonTableViewCell: BaseChooseTableViewCell {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .systemRed
         button.setTitle("Explore", for: .normal)
+        button.addTarget(nil, action: #selector(ChooseViewController.exploreButtonTapped), for: .touchUpInside)
         return button
     }()
     
-    override func setupCell() {
-        super.setupCell()
+    override func configureCell() {
+        super.configureCell()
         
         placeLabel()
     }
@@ -36,13 +37,5 @@ class ButtonTableViewCell: BaseChooseTableViewCell {
             exploreButton.leftAnchor.constraint(equalTo: cellView.leftAnchor),
             exploreButton.rightAnchor.constraint(equalTo: cellView.rightAnchor)
         ])
-        
-        exploreButton.addTarget(nil, action: #selector(ChooseViewController.exploreButtonTapped), for: .touchUpInside)
-    }
-    
-    
-    
-    private func showErorrMessage() {
-        
     }
 }

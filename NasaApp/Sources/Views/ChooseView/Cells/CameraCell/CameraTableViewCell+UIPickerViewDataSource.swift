@@ -14,10 +14,10 @@ extension CameraTableViewCell: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        Rover.CameraType.allCameras.count
+        Rover.CameraType.allCases.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        Rover.CameraType.allCameras[row].rawValue
+        Rover.CameraType.allCases[row].rawValue
     }
 }

@@ -10,8 +10,8 @@ import UIKit
 extension CameraTableViewCell: UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        currentCamera.send(Rover.CameraType.allCameras[row])
-        cameraPicker.text = Rover.CameraType.allCameras[row].rawValue
+        selectedCamera.send(Rover.CameraType.allCases[row])
+        cameraPicker.text = Rover.CameraType.allCases[row].rawValue
         cameraPicker.resignFirstResponder()
     }
 }

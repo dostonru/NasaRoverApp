@@ -9,13 +9,14 @@ import Combine
 
 class CameraTableViewCell: BaseChooseTableViewCell {
     
-    static var identifier = "CAMERA_CELL_ID"
+    static let identifier = "CAMERA_CELL_ID"
     
-    var currentCamera = PassthroughSubject<Rover.CameraType, Never>()
+    let selectedCamera = PassthroughSubject<Rover.CameraType, Never>()
     
-    let cameraPicker: UITextField = {
+    lazy var cameraPicker: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.inputView = pickerView
         return textField
     }()
     
@@ -32,14 +33,19 @@ class CameraTableViewCell: BaseChooseTableViewCell {
         return imageView
     }()
     
-    override func setupCell() {
-        super.setupCell()
+    
+    override func configureCell() {
+        super.configureCell()
         
         placeIcon()
         placeCameraPicker()
     }
     
+    
     private func placeCameraPicker() {
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        
         cellView.addSubview(cameraPicker)
         
         NSLayoutConstraint.activate([
@@ -48,11 +54,8 @@ class CameraTableViewCell: BaseChooseTableViewCell {
             cameraPicker.leftAnchor.constraint(equalTo: cellView.leftAnchor,constant: 10),
             cameraPicker.rightAnchor.constraint(equalTo: icon.leftAnchor,constant: -10)
         ])
-        
-        pickerView.delegate = self
-        pickerView.dataSource = self
-        cameraPicker.inputView = pickerView
     }
+    
     
     private func placeIcon() {
         cellView.addSubview(icon)

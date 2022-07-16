@@ -8,7 +8,8 @@
 import Foundation
 
 struct Rover {
-    enum CameraType: String {
+    
+    enum CameraType: String, CaseIterable {
         case FHAZ = "Front Hazard Avoidance Camera"
         case RHAZ = "Rear Hazard Avoidance Camera"
         case MAST = "Mast Camera"
@@ -16,16 +17,6 @@ struct Rover {
         case MAHLI = "Mars Hand Lens Imager"
         case MARDI = "Mars Descent Imager"
         case NAVCAM = "Navigation Camera"
-        
-        static let allCameras = [FHAZ, RHAZ, MAST, CHEMCAM, MAHLI, MARDI, NAVCAM]
-    }
-    
-    struct Photos: Codable {
-        var photos: [Photo]
-        
-        enum CodingKeys: String, CodingKey {
-            case photos
-        }
     }
     
     struct Photo: Codable {

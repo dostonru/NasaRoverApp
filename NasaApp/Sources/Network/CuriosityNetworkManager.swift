@@ -8,13 +8,11 @@
 import Foundation
 import Alamofire
 
-class RoverNetworkManager {
+class CuriosityNetworkManager: RoverNetworkManager {
     
-    static let instance = RoverNetworkManager()
-    
-    struct Constants {
+    private struct Constants {
         static let apiKey = "MKjkqRBKMSLQxBfCIUFcFUxhVjhK3Q3m3HnXVB3w"
-        static let baseURL = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?api_key=".appending(Constants.apiKey)
+        static let baseUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?"
     }
 
     func fetchImages(
@@ -22,9 +20,9 @@ class RoverNetworkManager {
         at date: String,
         completion: @escaping (Result<[Rover.Photo], Error>) -> Void
     ) {
-        let fullURL = Constants.baseURL + "&camera=\(camera)&earth_date=\(date)"
+        let fullURL = Constants.baseUrl + "api_key=" + Constants.apiKey + "&camera=\(camera)&earth_date=\(date)"
         
-        AF.request(fullURL, method: .get).responseDecodable(of: Rover.Photos.self) { response in
+        AF.request(fullURL, method: .get).responseDecodable(of: Response.self) { response in
             guard let photos = response.value else {
                 completion(.failure(response.error!))
                 return

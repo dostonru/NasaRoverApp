@@ -10,11 +10,7 @@ import UIKit
 extension PhotosViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        let photoDetailViewController = PhotoDetailViewController()
-        photoDetailViewController.photo = photos[indexPath.row]
-        navigationController?.pushViewController(photoDetailViewController, animated: true)
-        
+        coordinator?.showPhotoDetails(with: photos[indexPath.row])
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

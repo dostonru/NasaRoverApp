@@ -31,11 +31,18 @@ class ChooseViewController: UIViewController {
         return tableView
     }()
     
-    let loadingIndicator = UIActivityIndicatorView(style: .large)
+    let loadingIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        return activityIndicator
+    }()
     
+    var networkManager: RoverNetworkManager!
     var camera: Rover.CameraType?
     var date: String?
     var subsriptions = Set<AnyCancellable>()
+    
+    weak var coordinator: MainCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +65,7 @@ class ChooseViewController: UIViewController {
         ])
     }
     
+    
     private func placeTableView() {
         chooseTableView.delegate = self
         chooseTableView.dataSource = self
@@ -72,14 +80,56 @@ class ChooseViewController: UIViewController {
         ])
     }
     
+    
     private func placeLoadingIndicator() {
-        loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(loadingIndicator)
         
         NSLayoutConstraint.activate([
             loadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             loadingIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
+    }
+    
+    
+//    private func pushPhotosController(with photos: [Rover.Photo]) {
+//        let photosViewController = PhotosViewController()
+//        photosViewController.photos = photos
+//        photosViewController.setTitle(title: camera!.rawValue, subtitle: date!)
+//        navigationController?.pushViewController(photosViewController, animated: true)
+//
+//    }
+    
+    
+    private func showErorrMessage(with text: String) {
+        let alert = UIAlertController(title: "Error", message: text, preferredStyle: .alert)
+        
+        let okButton = UIAlertAction(title: "OK", style: .cancel)
+        alert.addAction(okButton)
+        present(alert, animated: true)
+    }
+    
+    
+    @objc func exploreButtonTapped() {
+        guard
+            let camera = camera,
+            let date = date else {
+            showErorrMessage(with: "Field should be filled or there is invalid data. Please try again")
+            return
+        }
+        
+        loadingIndicator.startAnimating()
+        networkManager = CuriosityNetworkManager()
+        
+        networkManager.fetchImages(from: camera, at: date) { [weak self] result in
+            self?.loadingIndicator.stopAnimating()
+            switch result {
+            case .failure:
+                self?.showErorrMessage(with: "Service response error. Please try again later.")
+            case .success(let photos):
+                self?.coordinator?.explorePhotos(with: photos, title: camera.rawValue, subtitle: date)
+            }
+            
+        }
     }
 }
 

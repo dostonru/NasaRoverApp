@@ -10,6 +10,10 @@ import UIKit
 class PhotosViewController: UIViewController {
     
     var photos = [Rover.Photo]()
+    private var cameraName: String!
+    private var subtitle: String!
+    
+    weak var coordinator: PhotosCoordinator?
     
     lazy var emptyLabel: UILabel = {
         let label = UILabel()
@@ -37,15 +41,28 @@ class PhotosViewController: UIViewController {
         collectionView.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: ImageCollectionViewCell.identifier)
         collectionView.delegate = self
         collectionView.dataSource = self
+        
         return collectionView
     }()
-
+    
+    init(photos: [Rover.Photo], title: String, subtitle: String) {
+        super.init(nibName: nil, bundle: nil)
+        self.photos = photos
+        self.cameraName = title
+        self.subtitle = subtitle
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor(red: 220/255, green: 206/255, blue: 190/255, alpha: 1)
         view.addSubview(emptyLabel)
         view.addSubview(photoCollectionView)
+        setTitle(title: cameraName, subtitle: subtitle)
     }
     
     override func viewWillAppear(_ animated: Bool) {
